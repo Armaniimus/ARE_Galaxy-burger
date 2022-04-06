@@ -1,6 +1,6 @@
 ---
 name: Epic
-about: gegroepeerde userstories
+about: Epic template
 title: ALS {actor} WIL IK {functie} ZODAT {doel}
 labels: Epic
 assignees: ''

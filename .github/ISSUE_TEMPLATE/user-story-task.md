@@ -1,7 +1,7 @@
 ---
 name: User Story Task
-about: This is a more detailed description of one of the DoD of a User Story
-title: ''
+about: task template
+title: 'task: {#userstoryissue number} {taak}'
 labels: Task
 assignees: ''
 

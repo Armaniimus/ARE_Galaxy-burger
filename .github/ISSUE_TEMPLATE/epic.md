@@ -2,7 +2,7 @@
 name: Epic
 about: gegroepeerde userstories
 title: ALS {actor} WIL IK {functie} ZODAT {doel}
-labels: epic
+labels: Epic
 assignees: ''
 
 ---

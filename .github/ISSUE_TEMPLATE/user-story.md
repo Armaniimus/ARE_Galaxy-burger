@@ -2,7 +2,7 @@
 name: User Story
 about: User Story template
 title: ALS {actor} WIL IK {functie} ZODAT {doel}
-labels: user story
+labels: User Story
 assignees: ''
 
 ---

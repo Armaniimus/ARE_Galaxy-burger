@@ -2,7 +2,7 @@
 name: Learning Story
 about: Learning Story template
 title: ''
-labels: ''
+labels: Learning Story
 assignees: ''
 
 ---

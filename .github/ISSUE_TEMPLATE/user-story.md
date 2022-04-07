@@ -1,8 +1,8 @@
 ---
 name: User Story
 about: User Story template
-title: ALS {actor} WIL IK {functie} ZODAT {doel}
-labels: user story
+title: 'UserStory: functionaliteit'
+labels: User Story
 assignees: ''
 
 ---

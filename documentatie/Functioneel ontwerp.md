@@ -2,19 +2,21 @@
 Dit is het functioneel ontwerp van Are_Galaxy_Burger in dit document zal ik de documentatie delen betreft het Are_galaxy_burger project.
 
 In dit document komen de volgende hoofdstukken aan bod
-* Domain model
-  * User Story hoofdstuk
-  * Conclusie hoofstuk
-* Hoofdstuk per klasse
-  * Toestandsdiagram / lifeCycle
-  * Use Cases
-  * Sitemap & wireframes
-* Cumulatieve sitemap & wireframes
+* [Domain model](#domain-model)
+  * [Analyse per userstory](#user-story-hoofdstuk)
+  * [Conclusie](#conclusie-hoofdstuk)
+* [Uitwerking per domeinklasse](#hoofdstuk-per-klasse)
+  * [Bestellingen](#bestellingen)
+  * [Bestelregels](#bestelregels)
+* [Cumulatieve sitemap & wireframes](#Cumulatieve-sitemap-&-wireframes)
 
-#Domain Model
+
+
+# <a id="domain-model"></a>Domain Model
 In dit hoofdstuk wordt een analyse gemaakt van de userstories om zote komen tot een volledig domein model
 
-##User Story hoofdstuk
+##
+## <a id="user-story-hoofdstuk"></a>Analyse per userstory
 In dit subhoofdstuk maken we een analyse per userstory en geven de benodigde domeinklassen daarbij aan. 
 ___
 ### #1 UserStory: kelner bestelling invoeren
@@ -63,7 +65,7 @@ Een Bestelregel heeft de volgende methoden
   * Met deze methode wordt het aantal van de bestelregel opgehoogd
 
 ___
-##Conclusie hoofdstuk
+## <a id="conclusie-hoofdstuk"></a>Conclusie
 Nu per userstory een diagram is gemaakt heb ik deze samengevoegd tot een volledig diagram zoals hieronder vermeld
 
 ![domeinmodel totaal](./klasse/klasse-totaal.drawio.png)
@@ -105,26 +107,72 @@ Een Bestelregel heeft de volgende methoden
   * Met deze methode wordt het aantal van de bestelregel opgehoogd
 
 ___
-#Hoofdstuk per klasse
-In dit hoofstuk worden de lifecycles wireframes en usecase diagrammen besproken per domeinklasse
+# <a id="hoofdstuk-per-klasse"></a> Uitwerking per domeinklasse
 
+In dit hoofstuk worden de lifecycles, wireframes en usecase diagrammen besproken per domeinklasse
 
-##Bestellingen
+---
+## <a id="bestellingen"></a> Bestellingen
 ###Toestandsdiagram / Lifecycle
 ![lifecycle bestellingen](./lifecycle/lifeCycle-bestellingen.drawio.png)
+
+In dit diagram staat de lifecycle bijbehorende bij een bestelling.
+In deze lifecycle heb je 2 states namelijk de volgende.
+  - in bewerking
+    - Een bestelling komt in deze toestand als hij wordt aangemaakt.
+    - in deze staat kan een bestelling aangepast worden door een product toe tevoegen. Ook kan 
+    het aantal opgehoogd worden van elk product.
+  - in de maak
+    - Een bestelling komt in deze toestand als een bestelling die in bewerking is wordt ingestuurd 
+    - deze status is het aanmaken afgerond en diend de bestelling alleen nog om uitgelezen te worden.
+
+  Aanvullend hierop kan een bestelling ook aangemaakt worden. 
+
 
 ###Use Cases
 ![usecase bestellingen](./usecase/usecase-bestellingen.drawio.png)
 
+In dit usecase diagram zie je de volgende usecases per actor
+- kelner
+  - bestelling aanmaken
+  - product toevoegen
+  - aantal ophogen
+  - bestelling insturen
+
+bovenstaande usecases kunnen alleen door de kelner rol uitgevoerd worden.
+
 ###Sitemap & Wireframes
 ![wireframe bestelling invoeren](./wireframe/Bestelling invoeren.png)
 
+In het hierboven gemaakte wireframe zie je de volgende elementen
+- Een placeholder voor de header
+- een tabel met de volgende elementen.
+  - een bovenste rij met kolomnamen.
+  - 2 rijen om de data van een bestelregel vast te houden.
+- een vak met een + om een rij aan de tabel toe te voegen.
+- een knop om de bestelling in te sturen met de naam "Bestelling insturen"
+
 ___
-##BestelRegels
+## <a id="bestelregels"></a> Bestelregels
 ###Toestandsdiagram / Lifecycle
 ![lifecycle bestelregel](./lifecycle/lifeCycle-bestelregel.drawio.png)
+
 ###Use Cases
 ![usecase bestelregels](./usecase/usecase-bestelregels.drawio.png)
+
+in de hierboven gemaakte usecase diagram zie je de volgende actie per actor
+- kelner
+  - aantal ophogen
+
 ###Sitemap & Wireframes
+![wireframe bestelling invoeren](./wireframe/Bestelling invoeren.png)
+
+In het hierboven gemaakte wireframe zie je de volgende elementen
+- Een placeholder voor de header
+- een tabel met de volgende elementen.
+  - een bovenste rij met kolomnamen.
+  - 2 rijen om de data van een bestelregel vast te houden.
+- een vak met een + om een rij aan de tabel toe te voegen.
+- een knop om de bestelling in te sturen met de naam "Bestelling insturen"
 ___
-#Cumulatieve Sitemap & Wireframes
+# <a id="Cumulatieve-sitemap-&-wireframes"></a> Cumulatieve sitemap & wireframes

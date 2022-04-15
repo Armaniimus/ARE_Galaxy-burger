@@ -246,7 +246,7 @@ In bovenstaand usecase diagram zie je de volgende usecases per actor
 ### Sitemap & Wireframes
 
 #### bestelling invoeren
-![wireframe bestelling invoeren](./wireframe/Bestelling invoeren.png)
+![wireframe bestelling invoeren](./wireframe/bestelling-invoeren.png)
 
 In het hierboven gemaakte wireframe zie je de volgende elementen
 - Een placeholder voor de header
@@ -272,7 +272,7 @@ in de hierboven gemaakte usecase diagram zie je de volgende actie per actor
 ### Sitemap & Wireframes
 
 #### bestelling invoeren
-![wireframe bestelling invoeren](./wireframe/Bestelling invoeren.png)
+![wireframe bestelling invoeren](./wireframe/bestelling-invoeren.png)
 
 In het hierboven gemaakte wireframe zie je de volgende elementen
 - Een placeholder voor de header

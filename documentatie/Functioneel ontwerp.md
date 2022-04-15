@@ -4,9 +4,12 @@ Dit is het functioneel ontwerp van Are_Galaxy_Burger in dit document zal ik de d
 In dit document komen de volgende hoofdstukken aan bod
 * [Domain model](#domain-model)
   * [Analyse per userstory](#user-story-hoofdstuk)
+    * [#1 UserStory: kelner bestelling invoeren](#userstory1)
+    * [#2 UserStory: kok bestellingen overzicht](#userstory2)
   * [Conclusie](#conclusie-hoofdstuk)
 * [Uitwerking per domeinklasse](#hoofdstuk-per-klasse)
-  * [Bestellingen](#bestellingen)
+  * [BestellingenList](#bestellingen-list)
+  * [Bestelling](#bestelling)
   * [Bestelregels](#bestelregels)
 * [Cumulatieve sitemap & wireframes](#Cumulatieve-sitemap-&-wireframes)
   * [Sitemap](#sitemap)
@@ -18,13 +21,13 @@ In dit hoofdstuk wordt een analyse gemaakt van de userstories om zo tot een voll
 ## <a id="user-story-hoofdstuk"></a>Analyse per userstory
 In dit subhoofdstuk maken we een analyse per userstory en geven de benodigde domeinklassen daarbij aan. 
 ___
-### #1 UserStory: kelner bestelling invoeren
+### <a id="userstory1"></a> #1 UserStory: kelner bestelling invoeren
 Userstory: ALS Kelner WIL IK een bestelling kunnen invoeren ZODAT de barman of kok dit later kan uitlezen om de bestelling te bereiden.
 Voor deze userstory heb ik het volgende domein analyse gemaakt.
 
 ![domeinmodel kelner bestelling invoeren](./klasse/klasse-kelner-bestelling-invoeren.drawio.png)
 
-####Bestellingen
+####Bestelling
 Een bestelling is aangemaakt om de kelner de mogelijkheid te geven een bestelling te kunnen voeren. 
 
 Een bestelling heeft de volgende attributen
@@ -37,8 +40,6 @@ Een bestelling heeft de volgende attributen
   * Wordt gebruikt om een status van een bestelling bij te houden en is begrenst met een enum
 
 Een bestelling heeft de volgende methoden.
-* Bestelling aanmaken()
-  * Hiermee kan de bestelling met een specifiek tafelnummer aangemaakt worden.
 * productToevoegen()
   * Hiermee wordt een product toegevoegd als bestelregel aan de bestelling.
 * aantalOphogen()
@@ -68,12 +69,78 @@ Een Bestelregel heeft de volgende methoden
   * Met deze methode wordt het aantal van de bestelregel opgehoogd
 
 ___
+### <a id="userstory2"></a> #2 UserStory: kok bestellingen overzicht
+Userstory: ALS kok WIL IK de ingevoerde bestellingen kunnen uitlezen ZODAT ik weet welke gerechten ik moet maken.
+
+![domeinmodel kok bestelling overzicht](./klasse/klasse-kok-bestellingen-overzicht.drawio.png)
+
+####BestellingenList
+Een bestellingenList heeft toegang tot alle bestellingen en via daar tot de bestelRegels.
+Dit is nodig omdat zo een lijst gemaakt kan worden van de benodigde bestellingen
+
+een bestellingenList heeft de volgende methoden
+- getKoksOverzicht()
+  - deze methode geeft alle gerechten terug die gemaakt moeten worden gebaseerd op de volgende zaken
+    - Er staan alleen producten in met ProductType GERECHT
+    - De lijst is gesorteerd op het id van een bestelling
+    - Er komen alleen producten in voor met de bestelStatus WORDT_BEREID
+
+####Bestelling
+Een bestelling is aangemaakt om dat deze de data voor de kok bijhoud voor elke bestelling.
+
+Een bestelling heeft de volgende attributen
+
+* id
+  * wordt gebruikt om een bestelling uniek te identificeren
+* tafelNummer
+  * Wordt gebruikt om de bestelling aan een tafel in het restaurant te verbindern
+* bestelStatus
+  * Wordt gebruikt om een status van een bestelling bij te houden en is begrenst met een enum
+  
+
+####BestelRegels
+Bestelregels staat in het model omdat een bestelling uit meerdere bestelde producten bestaan.
+deze staan over het algemeen onder elkaar geschreven met een aantal erachter.
+Ik heb in dit model ervoor gekozen om dit bestelregels te noemen omdat ik dit wel een logische naam vind.
+
+Een bestelregel hoort bij een bestelling en komt 0 of meer keren terug in een bestelling.
+
+Een bestelregel heeft de volgende attributen
+* Productnaam
+  * De productnaam is niet begrenst met een enum omdat de data hiervoor uiteindelijk uit de database zou komen
+* Het product type
+  * Het product type is begrenst doormiddel van een enum omdat dit een vrij vaststaand gegeven is
+* Aantal
+  * Het aantal wordt gebruikt zodat je niet 2 regels met het zelfde product hoeft in te voeren
+
+
+
+___
 ## <a id="conclusie-hoofdstuk"></a>Conclusie
 Nu per userstory een diagram is gemaakt heb ik deze samengevoegd tot een volledig diagram zoals hieronder vermeld
 
 ![domeinmodel totaal](./klasse/klasse-totaal.drawio.png)
 
+
+####BestellingenList
+Een bestellingenList heeft toegang tot alle bestellingen en via daar tot de bestelRegels.
+Dit is nodig omdat zo een lijst gemaakt kan worden van de benodigde bestellingen
+
+een bestellingenList heeft de volgende methoden
+- getKoksOverzicht()
+  - deze methode geeft alle gerechten terug die gemaakt moeten worden gebaseerd op de volgende zaken
+    - Er staan alleen producten in met ProductType GERECHT
+    - De lijst is gesorteerd op het id van een bestelling
+    - Er komen alleen producten in voor met de bestelStatus WORDT_BEREID
+- bestellingAanmaken()
+  - In deze functie wordt een nieuwe bestelling aangemaakt en toegevoegt aan de Lijst
+
+####Bestelling
+Een bestelling is aangemaakt om de kelner de mogelijkheid te geven een bestelling te kunnen voeren.
+Ook heeft de kok hem nodig omdat dit de data drager is voor elke bestelling
+
 Een bestelling heeft de volgende attributen
+
 * id
   * wordt gebruikt om een bestelling uniek te identificeren
 * tafelNummer
@@ -82,8 +149,6 @@ Een bestelling heeft de volgende attributen
   * Wordt gebruikt om een status van een bestelling bij te houden en is begrenst met een enum
 
 Een bestelling heeft de volgende methoden.
-* bestellingAanmaken()
-  * Hiermee kan de bestelling met een specifiek tafelnummer aangemaakt worden.
 * productToevoegen()
   * Hiermee wordt een product toegevoegd als bestelregel aan de bestelling.
 * aantalOphogen()
@@ -117,10 +182,25 @@ ___
 
 In dit hoofstuk worden de lifecycles, wireframes en usecase diagrammen besproken per domeinklasse
 
+
 ---
-## <a id="bestellingen"></a> Bestellingen
+## <a id="bestellingen-list"></a> BestellingenList
+
 ###Toestandsdiagram / Lifecycle
-![lifecycle bestellingen](./lifecycle/lifeCycle-bestellingen.drawio.png)
+![lifecycle bestellingen list](./lifecycle/lifeCycle-bestellingen-list.drawio.png)
+
+In bovenstaand diagram zie je de lifeCycle van een bestellingenlist deze heeft de volgende interacties per status
+  - bestellingen list bestaat
+    - get koksoverzicht
+      - dit verandert niets en is alleen een lees actie.
+###Use Cases
+
+###Sitemap & Wireframes
+
+---
+## <a id="bestelling"></a> Bestelling
+###Toestandsdiagram / Lifecycle
+![lifecycle bestelling](./lifecycle/lifeCycle-bestelling.drawio.png)
 
 In dit diagram staat de lifecycle bijbehorende bij een bestelling.
 In deze lifecycle heb je 2 states namelijk de volgende.
@@ -136,9 +216,18 @@ In deze lifecycle heb je 2 states namelijk de volgende.
 
 
 ###Use Cases
-![usecase bestellingen](./usecase/usecase-bestellingen.drawio.png)
 
-In dit usecase diagram zie je de volgende usecases per actor
+#### BestellingenList
+![usecase bestellingen list](./usecase/usecase-bestellingen-list.drawio.png)
+
+In bovenstaand usecase diagram zie je de volgende usecases per actor
+- kok
+  - bestelling aanmaken
+
+#### Bestelling
+![usecase bestelling](./usecase/usecase-bestelling.drawio.png)
+
+In bovenstaand usecase diagram zie je de volgende usecases per actor
 - kelner
   - bestelling aanmaken
   - product toevoegen

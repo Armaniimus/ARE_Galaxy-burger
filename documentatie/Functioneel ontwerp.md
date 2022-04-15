@@ -9,11 +9,10 @@ In dit document komen de volgende hoofdstukken aan bod
   * [Bestellingen](#bestellingen)
   * [Bestelregels](#bestelregels)
 * [Cumulatieve sitemap & wireframes](#Cumulatieve-sitemap-&-wireframes)
-
-
+  * [Sitemap](#sitemap)
 
 # <a id="domain-model"></a>Domain Model
-In dit hoofdstuk wordt een analyse gemaakt van de userstories om zote komen tot een volledig domein model
+In dit hoofdstuk wordt een analyse gemaakt van de userstories om zo tot een volledig domein model te komen
 
 ##
 ## <a id="user-story-hoofdstuk"></a>Analyse per userstory
@@ -30,9 +29,11 @@ Een bestelling is aangemaakt om de kelner de mogelijkheid te geven een bestellin
 
 Een bestelling heeft de volgende attributen
 
-* Tafelnummer
+* id
+  * wordt gebruikt om een bestelling uniek te identificeren
+* tafelNummer
   * Wordt gebruikt om de bestelling aan een tafel in het restaurant te verbindern
-* Bestelstatus
+* bestelStatus
   * Wordt gebruikt om een status van een bestelling bij te houden en is begrenst met een enum
 
 Een bestelling heeft de volgende methoden.
@@ -44,6 +45,8 @@ Een bestelling heeft de volgende methoden.
   * Hiermee wordt het aantal van een product in een bestelRegel verhoogd.
 * BestellingInsturen()
   * Hiermee wordt de status gewijzigd van in_bewerking naar wordt_bereid
+* setTafelNummer
+  * Hiermee kan het tafelNummer van een bestelling gewijzigd worden
 
 ####BestelRegels
 Bestelregels staat in het model omdat een bestelling uit meerdere bestelde producten bestaan.
@@ -71,21 +74,24 @@ Nu per userstory een diagram is gemaakt heb ik deze samengevoegd tot een volledi
 ![domeinmodel totaal](./klasse/klasse-totaal.drawio.png)
 
 Een bestelling heeft de volgende attributen
-
-* Tafelnummer
+* id
+  * wordt gebruikt om een bestelling uniek te identificeren
+* tafelNummer
   * Wordt gebruikt om de bestelling aan een tafel in het restaurant te verbindern
-* Bestelstatus
+* bestelStatus
   * Wordt gebruikt om een status van een bestelling bij te houden en is begrenst met een enum
 
 Een bestelling heeft de volgende methoden.
-* Bestelling aanmaken()
+* bestellingAanmaken()
   * Hiermee kan de bestelling met een specifiek tafelnummer aangemaakt worden.
 * productToevoegen()
   * Hiermee wordt een product toegevoegd als bestelregel aan de bestelling.
 * aantalOphogen()
   * Hiermee wordt het aantal van een product in een bestelRegel verhoogd.
-* BestellingInsturen()
+* bestellingInsturen()
   * Hiermee wordt de status gewijzigd van in_bewerking naar wordt_bereid
+* setTafelNummer
+  * Hiermee kan het tafelNummer van een bestelling gewijzigd worden
 
 ####BestelRegels
 Bestelregels staat in het model omdat een bestelling uit meerdere bestelde producten bestaan.
@@ -121,7 +127,7 @@ In deze lifecycle heb je 2 states namelijk de volgende.
   - in bewerking
     - Een bestelling komt in deze toestand als hij wordt aangemaakt.
     - in deze staat kan een bestelling aangepast worden door een product toe tevoegen. Ook kan 
-    het aantal opgehoogd worden van elk product.
+    het aantal opgehoogd worden van elk product, Als laatst kan het tafelnummer gewijzigd worden.
   - in de maak
     - Een bestelling komt in deze toestand als een bestelling die in bewerking is wordt ingestuurd 
     - deze status is het aanmaken afgerond en diend de bestelling alleen nog om uitgelezen te worden.
@@ -138,6 +144,7 @@ In dit usecase diagram zie je de volgende usecases per actor
   - product toevoegen
   - aantal ophogen
   - bestelling insturen
+  - tafel nummer wijzigen
 
 bovenstaande usecases kunnen alleen door de kelner rol uitgevoerd worden.
 
@@ -146,6 +153,7 @@ bovenstaande usecases kunnen alleen door de kelner rol uitgevoerd worden.
 
 In het hierboven gemaakte wireframe zie je de volgende elementen
 - Een placeholder voor de header
+- een blok met de text tafelNr met daarnaast een invoer veld voor het tafelnummer
 - een tabel met de volgende elementen.
   - een bovenste rij met kolomnamen.
   - 2 rijen om de data van een bestelregel vast te houden.
@@ -169,6 +177,7 @@ in de hierboven gemaakte usecase diagram zie je de volgende actie per actor
 
 In het hierboven gemaakte wireframe zie je de volgende elementen
 - Een placeholder voor de header
+- een blok met de text tafelNr met daarnaast een invoer veld voor het tafelnummer
 - een tabel met de volgende elementen.
   - een bovenste rij met kolomnamen.
   - 2 rijen om de data van een bestelregel vast te houden.
@@ -176,3 +185,45 @@ In het hierboven gemaakte wireframe zie je de volgende elementen
 - een knop om de bestelling in te sturen met de naam "Bestelling insturen"
 ___
 # <a id="Cumulatieve-sitemap-&-wireframes"></a> Cumulatieve sitemap & wireframes
+
+####Bestelling invoeren
+![wireframe bestelling invoeren](./wireframe/Bestelling invoeren.png)
+
+In het hierboven gemaakte wireframe zie je de volgende elementen
+- Een placeholder voor de header
+- een blok met de text tafelNr met daarnaast een invoer veld voor het tafelnummer
+- een tabel met de volgende elementen.
+  - een bovenste rij met kolomnamen.
+  - 2 rijen om de data van een bestelregel vast te houden.
+- een vak met een + om een rij aan de tabel toe te voegen.
+- een knop om de bestelling in te sturen met de naam "Bestelling insturen"
+
+####Header
+![Header](./wireframe/Header.png)
+
+Hierboven zie je de wireframe van de header zoals die gebruikt wordt boven elke pagina
+In de header staat de volgende knop
+- Home
+  - deze knop is een link welke leid naar de homepage
+
+####Home
+![Header](./wireframe/Home.png)
+
+Hierboven zie je de wireframe van de homepage deze bevat de volgende zaken
+- Een placeholder voor de header
+- Een knop om naar de bestelling invoeren pagina te gaan
+
+## <a id="sitemap"></a> Sitemap
+![Sitemap](./wireframe/Sitemap.png)
+
+Hierboven zie je de sitemap van de applicatie deze heeft de volgende pagina's en navigatie mogelijkheden:
+- Een header met de navigatie mogelijkheden
+  - een knop home welke leid naar de homepagina
+- Home met de volgende navigatie mogelijkheden
+  - een knop om een nieuwe bestelling in te voeren
+
+
+* in de sitemap staat de header(linksbovenin in het plaatje) In alle pagina's op de plek van de placeholder waar Header in staat.
+
+
+

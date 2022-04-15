@@ -1,4 +1,4 @@
-#Inleiding
+# Inleiding
 Dit is het functioneel ontwerp van Are_Galaxy_Burger in dit document zal ik de documentatie delen betreft het Are_galaxy_burger project.
 
 In dit document komen de volgende hoofdstukken aan bod
@@ -17,7 +17,6 @@ In dit document komen de volgende hoofdstukken aan bod
 # <a id="domain-model"></a>Domain Model
 In dit hoofdstuk wordt een analyse gemaakt van de userstories om zo tot een volledig domein model te komen
 
-##
 ## <a id="user-story-hoofdstuk"></a>Analyse per userstory
 In dit subhoofdstuk maken we een analyse per userstory en geven de benodigde domeinklassen daarbij aan. 
 ___
@@ -27,7 +26,7 @@ Voor deze userstory heb ik het volgende domein analyse gemaakt.
 
 ![domeinmodel kelner bestelling invoeren](./klasse/klasse-kelner-bestelling-invoeren.drawio.png)
 
-####Bestelling
+#### Bestelling
 Een bestelling is aangemaakt om de kelner de mogelijkheid te geven een bestelling te kunnen voeren. 
 
 Een bestelling heeft de volgende attributen
@@ -49,7 +48,7 @@ Een bestelling heeft de volgende methoden.
 * setTafelNummer
   * Hiermee kan het tafelNummer van een bestelling gewijzigd worden
 
-####BestelRegels
+#### BestelRegels
 Bestelregels staat in het model omdat een bestelling uit meerdere bestelde producten bestaan.
 deze staan over het algemeen onder elkaar geschreven met een aantal erachter.
 Ik heb in dit model ervoor gekozen om dit bestelregels te noemen omdat ik dit wel een logische naam vind.
@@ -74,7 +73,7 @@ Userstory: ALS kok WIL IK de ingevoerde bestellingen kunnen uitlezen ZODAT ik we
 
 ![domeinmodel kok bestelling overzicht](./klasse/klasse-kok-bestellingen-overzicht.drawio.png)
 
-####BestellingenList
+#### BestellingenList
 Een bestellingenList heeft toegang tot alle bestellingen en via daar tot de bestelRegels.
 Dit is nodig omdat zo een lijst gemaakt kan worden van de benodigde bestellingen
 
@@ -85,7 +84,7 @@ een bestellingenList heeft de volgende methoden
     - De lijst is gesorteerd op het id van een bestelling
     - Er komen alleen producten in voor met de bestelStatus WORDT_BEREID
 
-####Bestelling
+#### Bestelling
 Een bestelling is aangemaakt om dat deze de data voor de kok bijhoud voor elke bestelling.
 
 Een bestelling heeft de volgende attributen
@@ -98,7 +97,7 @@ Een bestelling heeft de volgende attributen
   * Wordt gebruikt om een status van een bestelling bij te houden en is begrenst met een enum
   
 
-####BestelRegels
+#### BestelRegels
 Bestelregels staat in het model omdat een bestelling uit meerdere bestelde producten bestaan.
 deze staan over het algemeen onder elkaar geschreven met een aantal erachter.
 Ik heb in dit model ervoor gekozen om dit bestelregels te noemen omdat ik dit wel een logische naam vind.
@@ -121,8 +120,7 @@ Nu per userstory een diagram is gemaakt heb ik deze samengevoegd tot een volledi
 
 ![domeinmodel totaal](./klasse/klasse-totaal.drawio.png)
 
-
-####BestellingenList
+#### BestellingenList
 Een bestellingenList heeft toegang tot alle bestellingen en via daar tot de bestelRegels.
 Dit is nodig omdat zo een lijst gemaakt kan worden van de benodigde bestellingen
 
@@ -135,7 +133,7 @@ een bestellingenList heeft de volgende methoden
 - bestellingAanmaken()
   - In deze functie wordt een nieuwe bestelling aangemaakt en toegevoegt aan de Lijst
 
-####Bestelling
+#### Bestelling
 Een bestelling is aangemaakt om de kelner de mogelijkheid te geven een bestelling te kunnen voeren.
 Ook heeft de kok hem nodig omdat dit de data drager is voor elke bestelling
 
@@ -158,7 +156,7 @@ Een bestelling heeft de volgende methoden.
 * setTafelNummer
   * Hiermee kan het tafelNummer van een bestelling gewijzigd worden
 
-####BestelRegels
+#### BestelRegels
 Bestelregels staat in het model omdat een bestelling uit meerdere bestelde producten bestaan.
 deze staan over het algemeen onder elkaar geschreven met een aantal erachter.
 Ik heb in dit model ervoor gekozen om dit bestelregels te noemen omdat ik dit wel een logische naam vind.
@@ -186,7 +184,7 @@ In dit hoofstuk worden de lifecycles, wireframes en usecase diagrammen besproken
 ---
 ## <a id="bestellingen-list"></a> BestellingenList
 
-###Toestandsdiagram / Lifecycle
+### Toestandsdiagram / Lifecycle
 ![lifecycle bestellingen list](./lifecycle/lifeCycle-bestellingen-list.drawio.png)
 
 In bovenstaand diagram zie je de lifeCycle van een bestellingenlist deze heeft de volgende interacties per status
@@ -194,7 +192,7 @@ In bovenstaand diagram zie je de lifeCycle van een bestellingenlist deze heeft d
     - get koksoverzicht
       - dit verandert niets en is alleen een lees actie.
 
-###Use Cases
+### Use Cases
 ![usecase bestellingen list](./usecase/usecase-bestellingen-list.drawio.png)
 
 In bovenstaand usecase diagram zie je de volgende usecases per actor
@@ -202,9 +200,9 @@ In bovenstaand usecase diagram zie je de volgende usecases per actor
   - bestelling aanmaken
 
 
-###Sitemap & Wireframes
+### Sitemap & Wireframes
 
-####koksoverzicht
+#### koksoverzicht
 ![wireframe koksoverzicht](./wireframe/koksoverzicht.png)
 
 In het hierboven gemaakte wireframe zie je de volgende elementen
@@ -218,7 +216,7 @@ In het hierboven gemaakte wireframe zie je de volgende elementen
 
 ---
 ## <a id="bestelling"></a> Bestelling
-###Toestandsdiagram / Lifecycle
+### Toestandsdiagram / Lifecycle
 ![lifecycle bestelling](./lifecycle/lifeCycle-bestelling.drawio.png)
 
 In dit diagram staat de lifecycle bijbehorende bij een bestelling.
@@ -234,7 +232,7 @@ In deze lifecycle heb je 2 states namelijk de volgende.
   Aanvullend hierop kan een bestelling ook aangemaakt worden. 
 
 
-###Use Cases
+### Use Cases
 ![usecase bestelling](./usecase/usecase-bestelling.drawio.png)
 
 In bovenstaand usecase diagram zie je de volgende usecases per actor
@@ -245,7 +243,7 @@ In bovenstaand usecase diagram zie je de volgende usecases per actor
   - bestelling insturen
   - tafel nummer wijzigen
 
-###Sitemap & Wireframes
+### Sitemap & Wireframes
 
 #### bestelling invoeren
 ![wireframe bestelling invoeren](./wireframe/Bestelling invoeren.png)
@@ -261,17 +259,17 @@ In het hierboven gemaakte wireframe zie je de volgende elementen
 
 ___
 ## <a id="bestelregels"></a> Bestelregels
-###Toestandsdiagram / Lifecycle
+### Toestandsdiagram / Lifecycle
 ![lifecycle bestelregel](./lifecycle/lifeCycle-bestelregel.drawio.png)
 
-###Use Cases
+### Use Cases
 ![usecase bestelregels](./usecase/usecase-bestelregels.drawio.png)
 
 in de hierboven gemaakte usecase diagram zie je de volgende actie per actor
 - kelner
   - aantal ophogen
 
-###Sitemap & Wireframes
+### Sitemap & Wireframes
 
 #### bestelling invoeren
 ![wireframe bestelling invoeren](./wireframe/Bestelling invoeren.png)
@@ -287,7 +285,7 @@ In het hierboven gemaakte wireframe zie je de volgende elementen
 ___
 # <a id="Cumulatieve-sitemap-&-wireframes"></a> Cumulatieve sitemap & wireframes
 
-####Bestelling invoeren
+#### Bestelling invoeren
 ![wireframe bestelling invoeren](./wireframe/Bestelling invoeren.png)
 
 In het hierboven gemaakte wireframe zie je de volgende elementen
@@ -299,7 +297,7 @@ In het hierboven gemaakte wireframe zie je de volgende elementen
 - een vak met een + om een rij aan de tabel toe te voegen.
 - een knop om de bestelling in te sturen met de naam "Bestelling insturen"
 
-####koksoverzicht
+#### koksoverzicht
 ![wireframe koksoverzicht](./wireframe/koksoverzicht.png)
 
 In het hierboven gemaakte wireframe zie je de volgende elementen
@@ -311,7 +309,7 @@ In het hierboven gemaakte wireframe zie je de volgende elementen
   - aantal
 - Een tabel van 4 rijen met verschillende bestelde gerechten
 
-####Header
+#### Header
 ![Header](./wireframe/Header.png)
 
 Hierboven zie je de wireframe van de header zoals die gebruikt wordt boven elke pagina
@@ -321,7 +319,7 @@ In de header staat de volgende knoppen
 - Koksoverzicht
   - deze knop leid naar het koksoverzicht
 
-####Home
+#### Home
 ![Header](./wireframe/Home.png)
 
 Hierboven zie je de wireframe van de homepage deze bevat de volgende zaken

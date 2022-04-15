@@ -193,9 +193,28 @@ In bovenstaand diagram zie je de lifeCycle van een bestellingenlist deze heeft d
   - bestellingen list bestaat
     - get koksoverzicht
       - dit verandert niets en is alleen een lees actie.
+
 ###Use Cases
+![usecase bestellingen list](./usecase/usecase-bestellingen-list.drawio.png)
+
+In bovenstaand usecase diagram zie je de volgende usecases per actor
+- kok
+  - bestelling aanmaken
+
 
 ###Sitemap & Wireframes
+
+####koksoverzicht
+![wireframe koksoverzicht](./wireframe/koksoverzicht.png)
+
+In het hierboven gemaakte wireframe zie je de volgende elementen
+- Een placeholder voor de header
+- een blok met de tekst gerechten om aan te duiden dat het alleen gerechten bevat
+- een rij met de volgende kolomNamen
+  - tafelNr
+  - gerecht
+  - aantal
+- Een tabel van 4 rijen met verschillende bestelde gerechten
 
 ---
 ## <a id="bestelling"></a> Bestelling
@@ -216,15 +235,6 @@ In deze lifecycle heb je 2 states namelijk de volgende.
 
 
 ###Use Cases
-
-#### BestellingenList
-![usecase bestellingen list](./usecase/usecase-bestellingen-list.drawio.png)
-
-In bovenstaand usecase diagram zie je de volgende usecases per actor
-- kok
-  - bestelling aanmaken
-
-#### Bestelling
 ![usecase bestelling](./usecase/usecase-bestelling.drawio.png)
 
 In bovenstaand usecase diagram zie je de volgende usecases per actor
@@ -235,9 +245,9 @@ In bovenstaand usecase diagram zie je de volgende usecases per actor
   - bestelling insturen
   - tafel nummer wijzigen
 
-bovenstaande usecases kunnen alleen door de kelner rol uitgevoerd worden.
-
 ###Sitemap & Wireframes
+
+#### bestelling invoeren
 ![wireframe bestelling invoeren](./wireframe/Bestelling invoeren.png)
 
 In het hierboven gemaakte wireframe zie je de volgende elementen
@@ -262,6 +272,8 @@ in de hierboven gemaakte usecase diagram zie je de volgende actie per actor
   - aantal ophogen
 
 ###Sitemap & Wireframes
+
+#### bestelling invoeren
 ![wireframe bestelling invoeren](./wireframe/Bestelling invoeren.png)
 
 In het hierboven gemaakte wireframe zie je de volgende elementen
@@ -287,20 +299,35 @@ In het hierboven gemaakte wireframe zie je de volgende elementen
 - een vak met een + om een rij aan de tabel toe te voegen.
 - een knop om de bestelling in te sturen met de naam "Bestelling insturen"
 
+####koksoverzicht
+![wireframe koksoverzicht](./wireframe/koksoverzicht.png)
+
+In het hierboven gemaakte wireframe zie je de volgende elementen
+- Een placeholder voor de header
+- een blok met de tekst gerechten om aan te duiden dat het alleen gerechten bevat
+- een rij met de volgende kolomNamen
+  - tafelNr
+  - gerecht
+  - aantal
+- Een tabel van 4 rijen met verschillende bestelde gerechten
+
 ####Header
 ![Header](./wireframe/Header.png)
 
 Hierboven zie je de wireframe van de header zoals die gebruikt wordt boven elke pagina
-In de header staat de volgende knop
+In de header staat de volgende knoppen
 - Home
   - deze knop is een link welke leid naar de homepage
+- Koksoverzicht
+  - deze knop leid naar het koksoverzicht
 
 ####Home
 ![Header](./wireframe/Home.png)
 
 Hierboven zie je de wireframe van de homepage deze bevat de volgende zaken
-- Een placeholder voor de header
-- Een knop om naar de bestelling invoeren pagina te gaan
+- Een placeholder voor de header.
+- Een knop om naar de bestelling invoeren pagina te gaan.
+- Een knop om naar het koksoverzicht te gaan.
 
 ## <a id="sitemap"></a> Sitemap
 ![Sitemap](./wireframe/Sitemap.png)
@@ -308,11 +335,16 @@ Hierboven zie je de wireframe van de homepage deze bevat de volgende zaken
 Hierboven zie je de sitemap van de applicatie deze heeft de volgende pagina's en navigatie mogelijkheden:
 - Een header met de navigatie mogelijkheden
   - een knop home welke leid naar de homepagina
+  - een knop koksoverzicht welke leid naar het koksoverzicht 
 - Home met de volgende navigatie mogelijkheden
   - een knop om een nieuwe bestelling in te voeren
+  - een knop naar het koksoverzicht
+- Koksoverzicht
+- Bestelling invoeren
 
+In de sitemap staan rode texten in elke wireframe deze geven aan om welk element / pagina het gaat. Ook zijn er rode pijlen welke aangeven waar een navigatie element naar toe verwijst. 
 
-* in de sitemap staat de header(linksbovenin in het plaatje) In alle pagina's op de plek van de placeholder waar Header in staat.
+De header is geen aparte pagina. Deze komt op de plaats te staan waar nu een header placeholder staat zoals gebruikt op een aantal wireframes.
 
 
 

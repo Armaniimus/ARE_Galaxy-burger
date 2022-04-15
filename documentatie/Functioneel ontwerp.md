@@ -286,7 +286,7 @@ ___
 # <a id="Cumulatieve-sitemap-&-wireframes"></a> Cumulatieve sitemap & wireframes
 
 #### Bestelling invoeren
-![wireframe bestelling invoeren](./wireframe/Bestelling invoeren.png)
+![wireframe bestelling invoeren](./wireframe/bestelling-invoeren.png)
 
 In het hierboven gemaakte wireframe zie je de volgende elementen
 - Een placeholder voor de header
@@ -310,7 +310,7 @@ In het hierboven gemaakte wireframe zie je de volgende elementen
 - Een tabel van 4 rijen met verschillende bestelde gerechten
 
 #### Header
-![Header](./wireframe/Header.png)
+![Header](./wireframe/header.png)
 
 Hierboven zie je de wireframe van de header zoals die gebruikt wordt boven elke pagina
 In de header staat de volgende knoppen
@@ -320,7 +320,7 @@ In de header staat de volgende knoppen
   - deze knop leid naar het koksoverzicht
 
 #### Home
-![Header](./wireframe/Home.png)
+![Home](./wireframe/home.png)
 
 Hierboven zie je de wireframe van de homepage deze bevat de volgende zaken
 - Een placeholder voor de header.
@@ -328,7 +328,7 @@ Hierboven zie je de wireframe van de homepage deze bevat de volgende zaken
 - Een knop om naar het koksoverzicht te gaan.
 
 ## <a id="sitemap"></a> Sitemap
-![Sitemap](./wireframe/Sitemap.png)
+![Sitemap](./wireframe/sitemap.png)
 
 Hierboven zie je de sitemap van de applicatie deze heeft de volgende pagina's en navigatie mogelijkheden:
 - Een header met de navigatie mogelijkheden
